@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ListaTarefas>
+
+<div class="container p-3">
+    <div class="row pt-4" >
+        <div class="col-6">
+            <h2 class="text-primary" >Lista de Tarefas</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="ListaTarefas" asp-action="Create" class="btn btn-primary ">Criar Nova Tarefa</a>
+        </div>
+    </div>
+
+
+<table class="table table-bordered table-striped mt-5" style="width:100%">
+    <thead  >
+        <tr class="table-dark">
+            <th style="width: 30%">
+                Tarefa
+            </th>
+            <th style="width: 20%">
+                Data de Criação
+            </th>
+             <th style="width: 20%">
+                Status
+            </th>
+            <th >
+                Ações
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+       
+            @foreach(var obj in Model)
+            {
+                <tr class="align-middle">
+                    <th>
+                        @obj.Tarefa
+                    </th>
+                    <th>
+                       @obj.Criacao
+                    </th>
+                    
+                        @if (obj.status == 1)
+                        {
+                            <th>
+                                Feito
+                            </th>
+                                }else
+                        {
+                             <th>
+                                Pendente
+                            </th>
+                        }
+                    
+                    <th>
+                        <div class="btn-group w-100">
+                            <a  class="btn btn-info mx-1" asp-action="Update"  asp-route-Id="@obj.Id"  >Editar</a>
+                            <a  class="btn btn-danger mx-1" asp-action="Delete" asp-route-Id="@obj.Id"   >Excluir</a>
+                        </div>
+                    </th>
+                </tr>
+            }
+
+    </tbody>
+</table>
+
+</div>

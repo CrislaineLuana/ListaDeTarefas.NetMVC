@@ -1,0 +1,36 @@
+﻿@model ListaDeTarefas.Models.ListaTarefas
+
+<form method="post" asp-action="Delete">
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Deletar Tarefa</h2>
+        </div>
+        <div class="d-flex justify-content-center align-content-center">
+            <div class="">
+  
+                <div class="form-group row">
+                    <div class="">
+                         <label class="col-form-label mt-4"  asp-for="Tarefa" ></label>
+                        <input disabled asp-for="Tarefa" class="form-control border-bottom border-dark" placeholder="Digite Sua Tarefa!"  />
+                        <span asp-validation-for="Tarefa" class="text-danger" ></span>
+                    </div>
+                    <div class="">
+                        <label class="col-form-label mt-4"  asp-for="status" ></label>
+                        <input disabled asp-for="status" class="form-control border-bottom border-dark" placeholder="1 = Feito, 0 = Pendente" asp-area="status" />
+                        <span asp-validation-for="status" class="text-danger" ></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class=" text-center d-flex justify-content-around mt-5">
+                        <div class="">
+                            <input type="submit" class="btn btn-danger text-center" style="width: 150px" value="Deletar" />
+                        </div>
+                        <div class="">
+                            <input  asp-action="Index"  type="submit" class="btn btn-info  " style="width: 150px" value="Voltar" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
